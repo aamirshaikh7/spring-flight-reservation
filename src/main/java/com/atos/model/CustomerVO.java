@@ -2,12 +2,24 @@ package com.atos.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "customer")
 public class CustomerVO {
+	@Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customerId")
+    @SequenceGenerator(name = "customerId", sequenceName = "customer_id_seq", allocationSize = 1)
 	private int customerId; 
 	private String title;
 	private String firstName;
 	private String surname;
-	private LocalDate intDoB;
+	private LocalDate dob;
 	private String mobile;
 	private String email;
 	
@@ -16,14 +28,14 @@ public class CustomerVO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CustomerVO(int customerId, String title, String firstName, String surname, LocalDate intDoB, String mobile,
+	public CustomerVO(int customerId, String title, String firstName, String surname, LocalDate dob, String mobile,
 			String email) {
 		super();
 		this.customerId = customerId;
 		this.title = title;
 		this.firstName = firstName;
 		this.surname = surname;
-		this.intDoB = intDoB;
+		this.dob = dob;
 		this.mobile = mobile;
 		this.email = email;
 	}
@@ -60,12 +72,12 @@ public class CustomerVO {
 		this.surname = surname;
 	}
 	
-	public LocalDate getIntDoB() {
-		return intDoB;
+	public LocalDate getDob() {
+		return dob;
 	}
 	
-	public void setIntDoB(LocalDate intDoB) {
-		this.intDoB = intDoB;
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
 	}
 	
 	public String getMobile() {
@@ -87,6 +99,6 @@ public class CustomerVO {
 	@Override
 	public String toString() {
 		return "CustomerVO [customerId=" + customerId + ", title=" + title + ", firstName=" + firstName + ", surname="
-				+ surname + ", intDoB=" + intDoB + ", mobile=" + mobile + ", email=" + email + "]";
+				+ surname + ", dob=" + dob + ", mobile=" + mobile + ", email=" + email + "]";
 	}
 }
