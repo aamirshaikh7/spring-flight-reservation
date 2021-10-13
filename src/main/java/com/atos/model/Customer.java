@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer")
-public class CustomerVO {
+public class Customer {
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customerId")
     @SequenceGenerator(name = "customerId", sequenceName = "customer_id_seq", allocationSize = 1)
@@ -23,12 +23,12 @@ public class CustomerVO {
 	private String mobile;
 	private String email;
 	
-	public CustomerVO() {
+	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CustomerVO(int customerId, String title, String firstName, String surname, LocalDate dob, String mobile,
+	public Customer(int customerId, String title, String firstName, String surname, LocalDate dob, String mobile,
 			String email) {
 		super();
 		this.customerId = customerId;

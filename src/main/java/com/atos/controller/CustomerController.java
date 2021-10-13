@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.atos.model.CustomerVO;
+import com.atos.model.Customer;
 import com.atos.services.CustomerService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 @RestController
 @RequestMapping(value = "/customer")
@@ -25,28 +26,29 @@ public class CustomerController {
 	private CustomerService service;
 	
 	@GetMapping(value="/list")
-	public ResponseEntity<List<CustomerVO>> getAllCustomers() {
-		return new ResponseEntity<List<CustomerVO>>(service.getAllCustomers(), HttpStatus.OK);
+	public ResponseEntity<List<Customer>> getAllCustomers() {
+		return new ResponseEntity<List<Customer>>(service.getAllCustomers(), HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/{id}")
-    public ResponseEntity<CustomerVO> getCustomerById(@PathVariable Integer id) {
-        return new ResponseEntity<CustomerVO>(service.getCustomerById(id), HttpStatus.OK);
+    public ResponseEntity<Customer> getCustomerById(@PathVariable Integer id) {
+        return new ResponseEntity<Customer>(service.getCustomerById(id), HttpStatus.OK);
     }
  
     @PostMapping(value = "/save")
-    public ResponseEntity<Integer> newCustomer(@RequestBody CustomerVO customer) {
+    public ResponseEntity<Integer> newCustomer(@RequestBody Customer customer) throws JsonProcessingException {
         System.out.println("controller : " + customer);
         return new ResponseEntity<Integer>(service.newCustomer(customer), HttpStatus.OK);
     }
  
     @PatchMapping(value = "/update")
-    public ResponseEntity<Integer> updateCustomer(@RequestBody CustomerVO customer) {
-        return new ResponseEntity<Integer>(service.updateCustomer(customer), HttpStatus.OK);
+    public ResponseEntity<Integer> updateCustomer(@RequestBody Customer customer) {
+    	System.out.println("controller : " + customer);
+    	return new ResponseEntity<Integer>(service.updateCustomer(customer), HttpStatus.OK);
     }
  
     @DeleteMapping(value = "/delete")
-    public ResponseEntity<Integer> deleteCustomerById(@RequestBody CustomerVO customer) {
+    public ResponseEntity<Integer> deleteCustomerById(@RequestBody Customer customer) {
         return new ResponseEntity<Integer>(service.deleteById(customer.getCustomerId()), HttpStatus.OK);
     }
 }

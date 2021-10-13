@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.atos.model.CustomerVO;
+import com.atos.model.Customer;
 import com.atos.repository.CustomerRepository;
 
 @Service
@@ -15,38 +15,38 @@ public class CustomerService {
 	@Autowired
 	private CustomerRepository repository;
 	
-	public List<CustomerVO> getAllCustomers () {
+	public List<Customer> getAllCustomers () {
 		return repository.findAll();
 	}
 	
-	public CustomerVO getCustomerById (int id) {
-		Optional<CustomerVO> customer = repository.findById(id);
+	public Customer getCustomerById (int id) {
+		Optional<Customer> customer = repository.findById(id);
 		
 		if (customer.isPresent()) {
             System.out.println(customer);
             return customer.get();
         } else {
-            return new CustomerVO(); 
+            return new Customer(); 
         }
 	}
 	
-	public int newCustomer (CustomerVO customer) {
-		Optional<CustomerVO> existsCustomer = repository.findById(customer.getCustomerId());
+	public int newCustomer (Customer customer) {
+		Optional<Customer> existsCustomer = repository.findById(customer.getCustomerId());
 
 		int id = 0;
         
         if (existsCustomer.isPresent()) {
             id = -1;
         } else {
-        	CustomerVO customer2 = repository.saveAndFlush(customer);
+        	Customer customer2 = repository.saveAndFlush(customer);
             id = customer2.getCustomerId();
         }
         
         return id;
 	}
 	
-	public int updateCustomer (CustomerVO customer) {
-		Optional<CustomerVO> existsCustomer = repository.findById(customer.getCustomerId());
+	public int updateCustomer (Customer customer) {
+		Optional<Customer> existsCustomer = repository.findById(customer.getCustomerId());
 
 		int id = 0;
         
@@ -62,7 +62,7 @@ public class CustomerService {
 	}
 	
 	public int deleteById (Integer customerId) {
-		Optional<CustomerVO> existsCustomer = repository.findById(customerId);
+		Optional<Customer> existsCustomer = repository.findById(customerId);
 
 		int id = 0;
         
