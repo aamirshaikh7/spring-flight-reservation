@@ -22,6 +22,8 @@ public class Customer {
 	private LocalDate dob;
 	private String mobile;
 	private String email;
+	private int packages;
+    private int charges;
 	
 	public Customer() {
 		super();
@@ -29,7 +31,7 @@ public class Customer {
 	}
 	
 	public Customer(int customerId, String title, String firstName, String surname, LocalDate dob, String mobile,
-			String email) {
+			String email, int packages, int charges) {
 		super();
 		this.customerId = customerId;
 		this.title = title;
@@ -38,8 +40,10 @@ public class Customer {
 		this.dob = dob;
 		this.mobile = mobile;
 		this.email = email;
+		this.packages = packages;
+		this.charges = charges;
 	}
-	
+
 	public int getCustomerId() {
 		return customerId;
 	}
@@ -96,9 +100,27 @@ public class Customer {
 		this.email = email;
 	}
 	
+	public int getPackages() {
+		return packages;
+	}
+
+	public void setPackages(int packages) {
+		this.packages = packages;
+	}
+
+	public int getCharges() {
+		return charges;
+	}
+
+	public void setCharges(int charges) {
+		this.charges = charges;
+	}
+
 	@Override
 	public String toString() {
-		return "CustomerVO [customerId=" + customerId + ", title=" + title + ", firstName=" + firstName + ", surname="
-				+ surname + ", dob=" + dob + ", mobile=" + mobile + ", email=" + email + "]";
+		return "Customer [customerId=" + customerId + ", title=" + title + ", firstName=" + firstName + ", surname="
+				+ surname + ", dob=" + dob + ", mobile=" + mobile + ", email=" + email + ", packages=" + packages
+				+ ", charges=" + charges + "]";
 	}
+
 }

@@ -16,15 +16,13 @@ public class Checkin {
     private int custId;
 	private int packages;
     private int charges;
- 
+
     public Checkin() {
-        super();
-        this.checkinId = 1;
-        this.packages = 5;
-        this.charges = 500;
-    }
-    
-    public Checkin(int checkinId, int custId, int packages, int charges) {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Checkin(int checkinId, int custId, int packages, int charges) {
 		super();
 		this.checkinId = checkinId;
 		this.custId = custId;

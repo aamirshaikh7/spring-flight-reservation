@@ -16,7 +16,7 @@ $(document).ready(function () {
 			
 			customers.push('<tr>');
 						
-			customers.push('<td>' + json[i].title + '</td>' + '<td>' + json[i].firstName + '</td>' + '<td>' + json[i].surname + '</td>' + '<td>' + json[i].dob + '</td>' + '<td>' + json[i].mobile + '</td>' + '<td>' + json[i].email + '</td>');
+			customers.push('<td>' + json[i].title + '</td>' + '<td>' + json[i].firstName + '</td>' + '<td>' + json[i].surname + '</td>' + '<td>' + json[i].dob + '</td>' + '<td>' + json[i].mobile + '</td>' + '<td>' + json[i].email + '</td>' + '<td>' + json[i].packages + '</td>' + '<td>' + json[i].charges + '</td>');
 						
 			customers.push('<td><button id=\'edit\' value=\'' + json[i].customerId + '\' class=\"btn btn-warning\">Edit</button></td>');
 			customers.push('<td><button type="submit" id=\'delete\' value=\'' + json[i].customerId + '\' class=\"btn btn-danger\">Delete</button></td>');
@@ -49,6 +49,8 @@ $(document).ready(function () {
 			$('#dob').val(data.dob);
 			$('#mobile').val(data.mobile);
 			$('#email').val(data.email);
+			$('#packages').val(data.packages);
+		
 		});
 	});
 	
@@ -60,12 +62,14 @@ $(document).ready(function () {
 		var dob = $('#dob').val();
 		var mobile = $('#mobile').val();
 		var email = $('#email').val();
-
+		var packages = $('#packages').val();
+		var charges = packages * 100;
+		
 		$.ajax({
 			type : 'PATCH',
 			url : customerPath + "/update",
 			contentType : "application/json; charset=utf-8",
-			data : JSON.stringify({ "customerId" : customerId, "title" : title, "firstName" : firstName, "surname" : surname, "dob" : dob, "mobile" : mobile, "email" : email }),
+			data : JSON.stringify({ "customerId" : customerId, "title" : title, "firstName" : firstName, "surname" : surname, "dob" : dob, "mobile" : mobile, "email" : email, "packages" : packages, "charges" : charges }),
 			cache : false,
 			success : function (result) {
 				console.log('update success');
