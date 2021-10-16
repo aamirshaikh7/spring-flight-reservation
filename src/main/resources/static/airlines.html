@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Customers - FlightBooking</title>
+    <title>Home - FlightBooking</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
@@ -26,20 +26,20 @@
                     <li class="nav-item"><a class="nav-link" href="airlines.html">Airlines</a></li>
                     <li class="nav-item"><a class="nav-link" href="airports.html">Airports</a></li>
                     <li class="nav-item"><a class="nav-link" href="ticket-booking.html">ticket booking</a></li>
-                    <li class="nav-item"><a class="nav-link" href="flights.html">flights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="flights.html">Flights</a></li>
                     <li class="nav-item"><a class="nav-link" href="search.html">Search flight</a></li>
                     <li class="nav-item"><a class="nav-link" href="ticket-cancel.html">ticket cancel</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <header class="masthead" style="background: url(&quot;assets/img/pexels-photomix-company-518244.jpg&quot;) center / cover no-repeat;">
+    <header class="masthead" style="background: url(&quot;assets/img/pexels-pixabay-62623.jpg&quot;) center / cover no-repeat;">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-lg-8 mx-auto position-relative">
                     <div class="site-heading">
-                        <h1>Customers</h1><span class="subheading">Have questions? I have answers.</span>
+                        <h1>Airlines</h1><span class="subheading">Airlines</span>
                     </div>
                 </div>
             </div>
@@ -47,20 +47,27 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-sm-12">
+                <section class="register-photo">
+                    <div class="form-container">
+                        <div class="image-holder" style="background: url(&quot;assets/img/pexels-pixabay-46148.jpg&quot;) center / cover no-repeat;"></div>
+                        <form method="post">
+                            <h2 class="text-center">Resister Airline</h2>
+                            <div class="mb-3"><input class="form-control" type="text" placeholder="Airline" name="airline-name" id="airline-name" required="" maxlength="25" /></div>
+                            <div class="mb-3">
+                                <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox" required="" />I agree to the license terms.</label></div>
+                            </div>
+                            <div class="mb-3"><a type="submit" href="http://localhost:1111/airlines.html" id="register" class="btn btn-primary d-block w-100" id="submit" style="background: rgb(61,89,135);">Register</a><button class="btn btn-danger border rounded d-block w-100 mt-2" type="reset" style="background: var(--bs-red);">Clear</button></div>
+                        </form>
+                    </div>
+                </section>
                 <section class="pt-4">
                     <div class="table-responsive">
                         <table id="customers" class="table">
                             <thead>
                                 <tr>
-                                    <th>Title</th>
-                                    <th>First Name</th>
-                                    <th>Surname</th>
-                                    <th>DOB</th>
-                                    <th>Mobile</th>
-                                    <th>Email</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>Airline Id</th>
+                                    <th>Airline Name</th>
                                 </tr>
                             </thead>
                         </table>
@@ -70,7 +77,7 @@
                     <div class="form-container">
                         <div class="image-holder" style="background: url(&quot;assets/img/pexels-pixabay-46148.jpg&quot;) center / cover no-repeat;"></div>
                         <form>
-                            <h2 class="text-center">Edit Customer</h2>
+                            <h2 class="text-center">Edit Airline</h2>
                             <div class="mb-3"><input disabled class="form-control" type="text" placeholder="Customer Id" name="customer-id" id="customer-id" required="" maxlength="12"></div>
                             <div class="mb-3"><input class="form-control" type="text" placeholder="Title" name="title" id="title" required="" maxlength="12"></div>
                             <div class="mb-3"><input class="form-control" type="text" placeholder="First Name" name="first-name" id="first-name" required="" maxlength="25"></div>
@@ -88,7 +95,6 @@
             </div>
         </div>
     </div>
-    <hr>
     <footer>
         <div class="container">
             <div class="row">
@@ -103,7 +109,7 @@
             </div>
         </div>
     </footer>
-    <script src="./assets/js/customer.js"></script>
+    <script src="./assets/js/airlines.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/clean-blog.js"></script>
